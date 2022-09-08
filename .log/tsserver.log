@@ -1,0 +1,23 @@
+Info 0    [23:37:11.606] Starting TS Server
+Info 1    [23:37:11.606] Version: 4.7.4
+Info 2    [23:37:11.606] Arguments: /nix/store/252srvvjhm3l2zsywylza55vl052fcyr-nodejs-14.20.0/bin/node /nix/store/d5bm7aqir36fjx0rw4nxv6nbhqwg0qj1-typescript-4.7.4/lib/node_modules/typescript/lib/tsserver.js --logFile /Users/dez/.dotfiles/Ubersicht/ubersicht-todo-widget/.log/tsserver.log --logVerbosity info --cancellationPipeName /private/var/folders/6g/k49ktr2j4916p8fc60mnql9h0000gn/T/4f8e4c6721182765a623e7caa7bcdcdb/tscancellation*
+Info 3    [23:37:11.606] Platform: darwin NodeVersion: 14 CaseSensitive: false
+Info 4    [23:37:11.606] ServerMode: undefined syntaxOnly: false hasUnknownServerMode: undefined
+Info 5    [23:37:11.611] Format host information updated
+Info 6    [23:37:11.615] Search path: /Users/dez/.dotfiles/Ubersicht/ubersicht-todo-widget
+Info 7    [23:37:11.615] For info: /Users/dez/.dotfiles/Ubersicht/ubersicht-todo-widget/index.jsx :: No config files found.
+Info 8    [23:37:11.617] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 9    [23:37:11.909] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 1 structureChanged: true structureIsReused:: Not Elapsed: 291.7286250591278ms
+Info 10   [23:37:11.909] Project '/dev/null/inferredProject1*' (Inferred)
+Info 11   [23:37:11.909] 	Files (19)
+
+Info 12   [23:37:11.909] -----------------------------------------------
+Info 13   [23:37:12.581] Starting updateGraphWorker: Project: /dev/null/inferredProject1*
+Info 14   [23:37:12.843] Finishing updateGraphWorker: Project: /dev/null/inferredProject1* Version: 2 structureChanged: true structureIsReused:: Not Elapsed: 261.2222499847412ms
+Info 15   [23:37:12.843] Project '/dev/null/inferredProject1*' (Inferred)
+Info 16   [23:37:12.843] 	Files (25)
+
+Info 17   [23:37:12.843] -----------------------------------------------
+Info 18   [23:37:14.832] Before ensureProjectForOpenFiles:
+Info 19   [23:37:14.833] After ensureProjectForOpenFiles:
+Info 20   [23:37:14.833] got projects updated in background, updating diagnostics for /Users/dez/.dotfiles/Ubersicht/ubersicht-todo-widget/index.jsx
