@@ -42,6 +42,10 @@ const title = css({
   fontSize: "12px"
 });
 
+const countDown = css({
+  color: "#61d290"
+})
+
 // const boxes = css({
 //   display: "grid",
 //   gridTemplateColumns: "100%",
@@ -84,7 +88,7 @@ export const render = ( {output} ) => {
   
   for (let i = 0; i < calendar.length; i++) {
     let timeDiff = Math.ceil((new Date(calendar[i].date) - todayDate)/(1000 * 60 * 60 * 24));
-    if (timeDiff == 0) {
+    if (timeDiff == 0 && calendar[i].type === "LEC&TUT") {
       todayEvents.push(calendar[i]);
     }
   }
@@ -92,10 +96,18 @@ export const render = ( {output} ) => {
   const assignments = [];
 
   for (let i = 0; i < calendar.length; i++) {
-    if (calendar[i].type === "beorg" && calendar[i].title.includes("Assignments")) {
+    if (calendar[i].title.includes("Assignment")) {
       assignments.push(calendar[i]);
     }
   }
+
+  const labs = [];
+  for (let i = 0; i < calendar.length; i++) {
+    if (calendar[i].title.includes("Lab")) {
+      labs.push(calendar[i]);
+    }
+  }
+  
 
   const tests = [];
 
@@ -123,13 +135,23 @@ export const render = ( {output} ) => {
       <div className={title}> Today:</div>
       <Today></Today>
       <br/>
+
+      <div className={title}>Labs:</div>
+      {labs.map( event =>
+        <div>{event.title}
+          <div>{event.date} in <b className={countDown}>{Math.ceil((new Date(event.date) - todayDate)/(1000 * 60 * 60 * 24))} d</b></div></div>)}
+      <br/>
+      
       <div className={title}>Assignments:</div>
       {assignments.map( event =>
         <div>{event.title}
-          <div>{event.date} in {Math.ceil((new Date()) - event.date)/(1000 * 60 * 60 * 24)}</div></div>)}
+          <div>{event.date} in <b className={countDown}>{Math.ceil((new Date(event.date) - todayDate)/(1000 * 60 * 60 * 24))} d</b></div></div>)}
 
       <br/>
       <div className={title}>Test/Quiz:</div>
+       {tests.map( event =>
+        <div>{event.title}
+          <div>{event.date} in <b className={countDown}>{Math.ceil((new Date(event.date) - todayDate)/(1000 * 60 * 60 * 24))} d</b></div></div>)}
     </div>
   )
 }
