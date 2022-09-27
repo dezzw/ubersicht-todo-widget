@@ -44,7 +44,7 @@ const title = css({
 
 const countDown = css({
   color: "#61d290"
-})
+});
 
 // const boxes = css({
 //   display: "grid",
@@ -119,39 +119,78 @@ export const render = ( {output} ) => {
 
   function Today() {
 
-    if (todayEvents == []) {
-      return <div>Today is clear</div>
+    if (todayEvents == false) {
+      return <div></div>;
     }
     return (
-      todayEvents.map( event =>
-        <div>{event.title}
-          <div>{event.start} - {event.end}</div></div>)
-    )
+      <div>
+        <div className={title}> Today:</div>
+        {todayEvents.map( event =>
+          <div>{event.title}
+            <div>{event.start} - {event.end}</div></div>)}
+      </div>
+    );
+  }
+
+  function Labs() {
+    
+    if (labs == false) {
+      return <div></div>;
+    }
+    return (
+      <div>
+        <div className={title}>Labs:</div>
+        {labs.map( event => {
+          const diffTime = (new Date(event.date) - todayDate)/(1000 * 60 * 60 * 24);
+          return (
+            <div>{event.title}
+              <div>{event.date} in <b className={countDown}>{Math.ceil(diffTime)} d</b></div></div>)
+        })}
+      </div>);
+  }
+
+  function Assignments() {
+
+    if (assignments == false) {
+      return <div></div>;
+    }
+    return (
+      <div>
+        <div className={title}>Assignments:</div>
+        {assignments.map( event =>
+          <div>{event.title}
+            <div>{event.date} in <b className={countDown}>{Math.ceil((new Date(event.date) - todayDate)/(1000 * 60 * 60 * 24))} d</b></div></div>)}
+      </div>);
+  }
+
+  function Tests() {
+
+    if (tests == false) {
+      return <div></div>;
+    }
+    return (
+      <div>
+        <div className={title}>Test/Quiz:</div>
+        {tests.map( event =>
+          <div>{event.title}
+            <div>{event.date} in <b className={countDown}>{Math.ceil((new Date(event.date) - todayDate)/(1000 * 60 * 60 * 24))} d</b></div></div>)}
+      </div>
+    );
   }
   
   return (
     <div className={holder}>
       <div className={date}>{todayDate.toDateString()}</div>
-      <div className={title}> Today:</div>
       <Today></Today>
       <br/>
 
-      <div className={title}>Labs:</div>
-      {labs.map( event =>
-        <div>{event.title}
-          <div>{event.date} in <b className={countDown}>{Math.ceil((new Date(event.date) - todayDate)/(1000 * 60 * 60 * 24))} d</b></div></div>)}
+      <Labs></Labs>
       <br/>
-      
-      <div className={title}>Assignments:</div>
-      {assignments.map( event =>
-        <div>{event.title}
-          <div>{event.date} in <b className={countDown}>{Math.ceil((new Date(event.date) - todayDate)/(1000 * 60 * 60 * 24))} d</b></div></div>)}
 
+      <Assignments></Assignments>
       <br/>
-      <div className={title}>Test/Quiz:</div>
-       {tests.map( event =>
-        <div>{event.title}
-          <div>{event.date} in <b className={countDown}>{Math.ceil((new Date(event.date) - todayDate)/(1000 * 60 * 60 * 24))} d</b></div></div>)}
+
+      <Tests></Tests>
     </div>
   )
 }
